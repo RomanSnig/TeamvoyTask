@@ -1,0 +1,60 @@
+.header_form input, button{
+  font-size: 140%;
+}
+.show {
+  display: flex;
+}
+.pokemons {
+  width: 50%;
+  flex-wrap: wrap;
+  display: flex;
+}
+.pokemons div {
+  border: black 1px solid;
+  flex-basis: 30%;
+  margin: 10px;
+}
+.pokemons div img {
+  width: 200px;
+  height: 200px;
+}
+
+.bla {
+  text-align: center;
+}
+.show_more {
+  background-color: lawngreen;
+  color: black;
+}
+.show_pokemon_info {
+  text-align: center;
+  align-items: center;
+  /*width: -webkit-fill-available;*/
+  /*position: fixed;*/
+}
+.show_pokemon_info img {
+  height: 440px
+}
+.show_pokemon_info div {
+  position: fixed;
+  /*border: black 1px solid;*/
+}
+table {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  border-collapse: collapse;
+  /*margin: 10px;*/
+}
+
+td {
+  padding: 15px;
+  border: 1px solid black;
+}
+tr {
+  border: black 1px solid;
+}
+.show_more_items {
+  font-size: 200%;
+  color: mediumvioletred;
+}

@@ -1,0 +1,26 @@
+<div style="text-align: center"><button (click)="cancel()" style="font-size: 150%">Cancel</button></div>
+<form #createForm="ngForm" (ngSubmit)="newPokemon(createForm.form.value)">
+  <label>Enter pokemon name: <br>
+    <input type="text" name="name" #nameCreate="ngModel" [ngStyle]="{border: nameCreate.invalid && nameCreate.touched ? 'solid 2px red' : 'solid 1px black'}" placeholder="bla-bla-bla)" minlength="2" maxlength="50" ngModel required>
+  </label> <br>
+  <label>  Enter pokemon type: <br>
+    <input type="text" name="type" #typeCreate="ngModel" [ngStyle]="{border: typeCreate.invalid && typeCreate.touched ? 'solid 2px red' : 'solid 1px black'}" ngModel required>
+  </label> <br>
+  <label>Enter pokemon health: <br>
+    <input type="number" name="HP" #HPCreate="ngModel" [ngStyle]="{border: HPCreate.invalid && HPCreate.touched ? 'solid 2px red' : 'solid 1px black'}" ngModel required>
+  </label> <br>
+  <label>Enter pokemon defence: <br>
+    <input type="number" name="defence" #defenceCreate="ngModel" [ngStyle]="{border: defenceCreate.invalid && defenceCreate.touched ? 'solid 2px red' : 'solid 1px black'}" ngModel required>
+  </label> <br>
+  <label>Enter pokemon attack: <br>
+    <input type="number" name="attack" #attackCreate="ngModel" [ngStyle]="{border: attackCreate.invalid && attackCreate.touched ? 'solid 2px red' : 'solid 1px black'}" ngModel required>
+  </label> <br>
+  <label>Enter pokemon stage: <br>
+    <input type="text" name="stage" #stageCreate="ngModel" [ngStyle]="{border: stageCreate.invalid && stageCreate.touched ? 'solid 2px red' : 'solid 1px black'}" placeholder="1,2 or basic" ngModel required>
+  </label> <br>
+  <label> Pokemon image: <br>
+    <input type="file" name="image" #imageCreate="ngModel" ngModel (change)="onFileUpload($event)" required>
+  </label>
+  <button style="font-size: 150%" type='submit' [disabled]="createForm.invalid">Create!</button>
+</form>
+

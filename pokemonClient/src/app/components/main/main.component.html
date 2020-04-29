@@ -1,0 +1,63 @@
+<div>
+  <form class="header_form" #findForm="ngForm" (ngSubmit)="findPokemons(findForm.form.value)">
+    <label>
+      <input type="text" placeholder="Enter subject name" name="type" #subject="ngModel" [ngStyle]="{border: subject.invalid && subject.touched ? 'solid 2px red' : 'solid 1px black'}" minlength="1" maxlength="111" ngModel required>
+    </label>
+    <label>
+      <button type="submit" [disabled]="findForm.invalid">Find</button>
+    </label>
+  </form>
+  <br>
+  <div>
+    <button (click)="createPokemon()">Create new Pokemon!</button>
+  </div>
+</div>
+<div class="show">
+  <div class="pokemons">
+    <div *ngFor="let bla of pokemon | paginate: {itemsPerPage: currentItems, currentPage: page}">
+      <div class="bla">
+        <img [src]="bla.image" alt=""> <br>
+        {{bla.name}} <br>
+        {{bla.type}} <br>
+        <button class="show_more" (click)="showMore(bla)">Show More!</button>
+      </div>
+    </div>
+    <!--<button *ngIf="showItems" (click)="ShowMoreItems()" class="show_more_items">Show More</button>-->
+  </div>
+  <div class="show_pokemon_info" *ngIf="more">
+    <div>
+      <img style="" [src]="more.image" alt=""> <br>
+      <b>{{more.name}}</b> <br>
+      <table>
+        <tr>
+          <td>type</td>
+          <td>{{more.type}}</td>
+        </tr>
+        <tr>
+          <td>HP</td>
+          <td>{{more.HP}}</td>
+        </tr>
+        <tr>
+          <td>attack</td>
+          <td>{{more.attack}}</td>
+        </tr>
+        <tr>
+          <td>defence</td>
+          <td>{{more.defence}}</td>
+        </tr>
+        <tr>
+          <td>stage</td>
+          <td>{{more.stage}}</td>
+        </tr>
+      </table>
+      <!--<ul>-->
+      <!--<li>type:{{more.type}}</li>-->
+      <!--<li>HP:{{more.HP}}</li>-->
+      <!--<li>attack:{{more.attack}}</li>-->
+      <!--<li>defence:{{more.defence}}</li>-->
+      <!--<li>stage:{{more.stage}}</li>-->
+      <!--</ul>-->
+    </div>
+  </div>
+</div>
+<button *ngIf="showItems" (click)="ShowMoreItems()" class="show_more_items">Show More pokemons</button>
